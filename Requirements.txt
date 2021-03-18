@@ -1,0 +1,33 @@
+Cloud Provider
+
+	Virtual Machine Service
+			Windows
+			   Create
+			Linux
+			   Create
+
+			Delete
+
+	
+	Database Service
+			SQL
+			   Create
+			MySql
+			   Create
+			
+			Delete
+
+	...\
+ ex: Input
+ 	Provider.IGS
+	.Virtual Machine
+		.withOperatingSystem(OS.Windows)
+		.withCPU(cpu.FourCore)
+		.withRAM(ram.eightGigaByte)
+		.Create("UAT");
+
+       output:
+	IGS\VirtualMachine\
+
+
+for VM : proper evaluation of testing tools, hardware, software, server, storage, bandwidth, time frame.
