@@ -31,3 +31,4 @@ Cloud Provider
 
 
 for VM : proper evaluation of testing tools, hardware, software, server, storage, bandwidth, time frame.
+c
