@@ -1,0 +1,9 @@
+C:\Geeks\CloudCode\CloudInfra\CloudInfra\bin\Debug\netstandard2.0\CloudInfra.deps.json
+C:\Geeks\CloudCode\CloudInfra\CloudInfra\bin\Debug\netstandard2.0\CloudInfra.dll
+C:\Geeks\CloudCode\CloudInfra\CloudInfra\bin\Debug\netstandard2.0\CloudInfra.pdb
+C:\Geeks\CloudCode\CloudInfra\CloudInfra\obj\Debug\netstandard2.0\CloudInfra.csprojAssemblyReference.cache
+C:\Geeks\CloudCode\CloudInfra\CloudInfra\obj\Debug\netstandard2.0\CloudInfra.AssemblyInfoInputs.cache
+C:\Geeks\CloudCode\CloudInfra\CloudInfra\obj\Debug\netstandard2.0\CloudInfra.AssemblyInfo.cs
+C:\Geeks\CloudCode\CloudInfra\CloudInfra\obj\Debug\netstandard2.0\CloudInfra.csproj.CoreCompileInputs.cache
+C:\Geeks\CloudCode\CloudInfra\CloudInfra\obj\Debug\netstandard2.0\CloudInfra.dll
+C:\Geeks\CloudCode\CloudInfra\CloudInfra\obj\Debug\netstandard2.0\CloudInfra.pdb
