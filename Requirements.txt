@@ -31,4 +31,7 @@ Cloud Provider
 
 
 for VM : proper evaluation of testing tools, hardware, software, server, storage, bandwidth, time frame.
-c
+
+
+for database:
+gcloud sql databases create DATABASE --instance=INSTANCE, -i INSTANCE [--async] [--charset=CHARSET] [--collation=COLLATION] [GCLOUD_WIDE_FLAG …]
