@@ -1,30 +1,64 @@
-﻿using CloudInfra.ResourceTypes.Enum;
+﻿using CloudInfra.Common.FileManagement;
+using CloudInfra.ResourceTypes.Enum;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CloudInfra.ResourceTypes
 {
-    
-    public class Database
+    public class DatabaseFacotry
     {
-        public DatabaseResource SQL(string Instance,
+        private readonly IFileSystem _fileSystem;
+        private string _infrastractureName;
+        private string _providerPath = "";
+        private string _fileExtention = ".json";
+        public DatabaseFacotry(string InfrastractureName,
+                              string ProviderPath,
+                              IFileSystem fileSystem)
+        {
+            _infrastractureName = InfrastractureName;
+            _providerPath = ProviderPath;
+            _fileSystem = fileSystem;
+        }
+        public string SQL(string Instance,
                            SqlCharset Charset,
                            string Collation)
         {
-           var sql= new SQLResource(Instance,
-                                    Charset,
-                                    Collation);
-            return sql.Build();
+            var sql = new SQLResource(Instance,
+                                     Charset,
+                                     Collation);
+            var sqlAttributes= sql.Build();
+            var filename=WriteFile("SQL", sqlAttributes.ToString());
+            return filename;
         }
-        public DatabaseResource MySQL(string Instance,
+        public string MySQL(string Instance,
                            MySqlCharset Charset,
                            string Collation)
         {
-            var sql = new MySQLResource(Instance,
+            var mySql = new MySQLResource(Instance,
                                      Charset,
                                      Collation);
-            return sql.Build();
+            var mySqlAttributes= mySql.Build();
+            return "";
+        }
+        
+        private string WriteFile(string databaseType,
+                               string fileContent)
+        {
+            string resourceTypeName = @"\DB";
+            string filePath =
+                string.Concat(_providerPath,
+                             @"\",
+                             _infrastractureName,
+                              resourceTypeName
+                              );
+            string fileName = string.Concat(_infrastractureName,
+                               @"_",
+                              databaseType,
+                              _fileExtention);
+
+            _fileSystem.WriteTextFile(filePath, fileName, fileContent);
+            return fileName;
         }
     }
     public class DatabaseResource
@@ -44,11 +78,11 @@ namespace CloudInfra.ResourceTypes
             return false;
         }
     }
-   public abstract class DatabaseFactory
+    public abstract class Database
     {
         public abstract DatabaseResource Build();
     }
-    public class SQLResource : DatabaseFactory
+    public class SQLResource : Database
     {
         private string instance;
         private SqlCharset charset;
@@ -65,13 +99,13 @@ namespace CloudInfra.ResourceTypes
         {
             return new DatabaseResource
             {
-                Collation=collation,
-                Charset=charset.ToString(),
-                Instance=instance
+                Collation = collation,
+                Charset = charset.ToString(),
+                Instance = instance
             };
         }
     }
-    public class MySQLResource : DatabaseFactory
+    public class MySQLResource : Database
     {
         private string instance;
         private MySqlCharset charset;

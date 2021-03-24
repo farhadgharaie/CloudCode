@@ -20,9 +20,9 @@ namespace CloudInfra.Providers
             _fileSystem = fileSystem;
         }
 
-        public string Database()
+        public DatabaseFacotry Database()
         {
-            return "";
+            return new DatabaseFacotry(_infrastractureName, _providerPath,_fileSystem);
         }
         public string VirtualMachine(OperatingSystem os, int HDD, int RAM, int CPU)
         {
@@ -40,13 +40,13 @@ namespace CloudInfra.Providers
             var virtualMachineAttribute = vm.Build();
 
             string fileContent = virtualMachineAttribute.ToString();
-            WriteFile(fileName, filePath, fileContent);
+            WriteFile( filePath, fileName, fileContent);
 
             return fileName;
         }
-        private void WriteFile(string fileName, string subPath, string fileContent)
+        private void WriteFile( string filePAth, string fileName, string fileContent)
         {
-            _fileSystem.WriteTextFile(subPath, fileName, fileContent);
+            _fileSystem.WriteTextFile(filePAth, fileName, fileContent);
         }
     }
     

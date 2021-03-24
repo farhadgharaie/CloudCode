@@ -7,7 +7,7 @@ namespace CloudInfra.ResourceTypes
    public  interface IResourceType
     {
         string VirtualMachine(OperatingSystem os,int HDD,int RAM, int CPU);
-        string Database();
+        DatabaseFacotry Database();
     }
     
 }
