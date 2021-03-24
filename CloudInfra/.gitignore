@@ -1,4 +1,6 @@
 TestResults/*
 CloudInfra/bin/*
-CCloudInfra/obj/*
-CloudInfra/.vs
+CloudInfra/obj/*
+CloudInfra/.vs/*
+UnitTest/CloudInfra.UnitTest/bin/*
+UnitTest/CloudInfra.UnitTest/obj/*
