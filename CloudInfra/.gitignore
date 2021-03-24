@@ -1,7 +1,6 @@
-TestResults/*
 CloudInfra/bin/*
 CloudInfra/obj/*
-CloudInfra/.vs/*
+.vs/*
 UnitTest/CloudInfra.UnitTest/bin/*
 UnitTest/CloudInfra.UnitTest/obj/*
 ## Ignore Visual Studio temporary files, build results, and
