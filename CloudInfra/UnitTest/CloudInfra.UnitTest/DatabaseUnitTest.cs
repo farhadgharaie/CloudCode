@@ -1,4 +1,5 @@
 ﻿using CloudInfra.ResourceTypes;
+using CloudInfra.ResourceTypes.Enum;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -12,7 +13,7 @@ namespace CloudInfra.UnitTest
         {
             //Arrang 
             string instance = "example";
-            SqlCharset charset = SqlCharset.uft32;
+            SqlCharset charset = SqlCharset.utf32;
             string collation = "collation1";
             var db = new SQLResource(instance,charset,collation);
 
@@ -24,17 +25,17 @@ namespace CloudInfra.UnitTest
             };
 
             //Act
-            var actual=db.Create();
+            var actual=db.Build();
 
             //Assert
-            Assert.AreEqual(expected.ToString(), actual.ToString());
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void MySQLResource_Returen_Right_DatabaseResource()
         {
             //Arrang 
             string instance = "example";
-            MySqlCharset charset = MySqlCharset.uft32;
+            MySqlCharset charset = MySqlCharset.utf8;
             string collation = "collation1";
             var db = new MySQLResource(instance, charset, collation);
 
@@ -42,14 +43,14 @@ namespace CloudInfra.UnitTest
             {
                 Instance = "example",
                 Collation = "collation1",
-                Charset = "utf32"
+                Charset = "utf8"
             };
 
             //Act
-            var actual = db.Create();
+            var actual = db.Build();
 
             //Assert
-            Assert.AreEqual(expected.ToString(), actual.ToString());
+            Assert.AreEqual(expected, actual);
         }
     }
 }

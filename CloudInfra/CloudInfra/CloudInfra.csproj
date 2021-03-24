@@ -2,10 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Farhad Gharaie</Authors>
+    <Company>Geeks</Company>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Providers\" />
-  </ItemGroup>
 
 </Project>
