@@ -1,3 +1,4 @@
-CloudInfra/TestResults/
-CloudInfra/CloudInfra/bin/
-CloudInfra/CloudInfra/obj/
+CloudInfra\TestResults\
+CloudInfra\bin\
+CCloudInfra\obj\
+CloudInfra\.vs
