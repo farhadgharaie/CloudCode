@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CloudInfra.ResourceTypes.Database;
+using CloudInfra.ResourceTypes.VirtualMachine;
 
 namespace CloudInfra.ResourceTypes
 {

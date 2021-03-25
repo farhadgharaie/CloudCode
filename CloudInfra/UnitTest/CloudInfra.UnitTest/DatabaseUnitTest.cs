@@ -1,4 +1,4 @@
-﻿using CloudInfra.ResourceTypes;
+﻿using CloudInfra.ResourceTypes.Database;
 using CloudInfra.ResourceTypes.Enum;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

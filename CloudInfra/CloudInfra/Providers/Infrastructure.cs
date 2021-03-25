@@ -1,10 +1,8 @@
 ﻿using CloudInfra.Common.FileManagement;
 using CloudInfra.Common.Json;
 using CloudInfra.ResourceTypes;
-using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Json;
-using OperatingSystem = CloudInfra.ResourceTypes.OperatingSystem;
+using CloudInfra.ResourceTypes.Database;
+using CloudInfra.ResourceTypes.VirtualMachine;
 
 namespace CloudInfra.Providers
 {
@@ -42,7 +40,7 @@ namespace CloudInfra.Providers
                               _fileExtention);
             var vm = new VirtualMachine(os, HDD, RAM, CPU);
             var virtualMachineAttribute = vm.Build();
-            _fileSystem.WriteTextFile(virtualMachineAttribute,
+            _fileSystem.WriteJsonFile(virtualMachineAttribute,
                                     filePath, fileName);
 
             return fileName;

@@ -1,7 +1,6 @@
 ﻿using CloudInfra.Providers;
-using CloudInfra.ResourceTypes;
+using CloudInfra.ResourceTypes.VirtualMachine;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace CloudInfra.UnitTest
 {

@@ -1,12 +1,11 @@
 ﻿using CloudInfra.Common.FileManagement;
 using CloudInfra.Providers;
-using CloudInfra.ResourceTypes;
+using CloudInfra.ResourceTypes.Database;
 using CloudInfra.ResourceTypes.Enum;
+using CloudInfra.ResourceTypes.VirtualMachine;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace CloudInfra.IntegrationTest.Provider
 {
@@ -22,7 +21,7 @@ namespace CloudInfra.IntegrationTest.Provider
             int hdd = 40;
             WindowsVersion windowsVersion = WindowsVersion.WindowsServer2012;
             var fileSystemMock = new Mock<IFileSystem>();
-            fileSystemMock.Setup(w => w.WriteTextFile(It.IsAny<object>(),
+            fileSystemMock.Setup(w => w.WriteJsonFile(It.IsAny<object>(),
                                                  It.IsAny<string>(),
                                                  It.IsAny<string>()))
                           .Verifiable();
@@ -45,7 +44,7 @@ namespace CloudInfra.IntegrationTest.Provider
             int hdd = 40;
             LinuxDistribution LinuxDist = LinuxDistribution.Debian;
             var fileSystemMock = new Mock<IFileSystem>();
-            fileSystemMock.Setup(w => w.WriteTextFile(It.IsAny<object>(),
+            fileSystemMock.Setup(w => w.WriteJsonFile(It.IsAny<object>(),
                                                  It.IsAny<string>(),
                                                  It.IsAny<string>()))
                           .Verifiable();
@@ -68,7 +67,7 @@ namespace CloudInfra.IntegrationTest.Provider
             string collation = "collation1";
             var db = new SQLResource(instance, charset, collation);
             var fileSystemMock = new Mock<IFileSystem>();
-            fileSystemMock.Setup(w => w.WriteTextFile(It.IsAny<object>(),
+            fileSystemMock.Setup(w => w.WriteJsonFile(It.IsAny<object>(),
                                                  It.IsAny<string>(),
                                                  It.IsAny<string>()))
                           .Verifiable();
@@ -92,7 +91,7 @@ namespace CloudInfra.IntegrationTest.Provider
             string collation = "collation1";
             var db = new MySQLResource(instance, charset, collation);
             var fileSystemMock = new Mock<IFileSystem>();
-            fileSystemMock.Setup(w => w.WriteTextFile(It.IsAny<object>(),
+            fileSystemMock.Setup(w => w.WriteJsonFile(It.IsAny<object>(),
                                                  It.IsAny<string>(),
                                                  It.IsAny<string>()))
                           .Verifiable();
