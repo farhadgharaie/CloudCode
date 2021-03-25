@@ -65,7 +65,9 @@ namespace CloudInfra.IntegrationTest.Provider
             string instance = "example";
             SqlCharset charset = SqlCharset.utf32;
             string collation = "collation1";
-            var db = new SQLResource(instance, charset, collation);
+            string userName = "user1";
+            string password = "2345";
+
             var fileSystemMock = new Mock<IFileManager>();
             fileSystemMock.Setup(w => w.WriteJsonFile(It.IsAny<object>(),
                                                  It.IsAny<string>(),
@@ -76,7 +78,7 @@ namespace CloudInfra.IntegrationTest.Provider
 
             //Act
             var actual = new Infrastructure("UAT", providerPath, fileSystemMock.Object)
-                        .Database().SQL(instance, charset, collation);
+                        .Database().SQL(instance, charset, collation,userName,password);
 
 
             //Assert
@@ -89,7 +91,9 @@ namespace CloudInfra.IntegrationTest.Provider
             string instance = "example";
             MySqlCharset charset = MySqlCharset.utf8;
             string collation = "collation1";
-            var db = new MySQLResource(instance, charset, collation);
+            string userName = "user1";
+            string password = "2345";
+
             var fileSystemMock = new Mock<IFileManager>();
             fileSystemMock.Setup(w => w.WriteJsonFile(It.IsAny<object>(),
                                                  It.IsAny<string>(),
@@ -100,7 +104,7 @@ namespace CloudInfra.IntegrationTest.Provider
 
             //Act
             var actual = new Infrastructure("UAT", providerPath, fileSystemMock.Object)
-                        .Database().MySQL(instance, charset, collation);
+                        .Database().MySQL(instance, charset, collation,userName,password);
 
             //Assert
             Assert.AreEqual(expected, actual);

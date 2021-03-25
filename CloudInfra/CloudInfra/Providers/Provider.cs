@@ -11,24 +11,28 @@ namespace CloudInfra.Providers
         void setRootPath(string rootPath);
         void setName(string providerName);
 
+
     }
    public  class Provider : IProvider
     {
         private string _providerName;
         private string _providerPath = @"c:\";
-        public Provider(string ProviderName)
+        private readonly IFileManager _fileManager;
+        public Provider(string ProviderName,
+                        IFileManager fileManager=null)
         {
             _providerName = ProviderName;
+            _fileManager = fileManager is null ? new FileManager() : fileManager;
         }
         public virtual Infrastructure CreateInfrastructure(string InfrastructureName)
         {
            return  new Infrastructure(InfrastructureName,_providerPath+_providerName,
-                                      new FileManager());
+                                      _fileManager);
         }
         public virtual void DeleteInfrastructure(string InfrastructureName)
         {
             var infra = new Infrastructure(InfrastructureName, _providerPath + _providerName,
-                                       new FileManager());
+                                           _fileManager);
             infra.Delete();
         }
 

@@ -51,7 +51,7 @@ namespace CloudInfra.ResourceTypes.Database
         private string WriteFile<T>(T objecttoSave,string databaseType)
             where T :class, new()
         {
-            string resourceTypeName = @"\DB";
+            string resourceTypeName = @"\Database";
             string filePath =
                 string.Concat(_providerPath,
                              @"\",
