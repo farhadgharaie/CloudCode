@@ -12,7 +12,6 @@ namespace CloudInfra.UnitTest
         [TestMethod]
         public void TestMethod1()
         {
-            var pro = IGSProvider();
             var provider = new Provider("test");
             var infra = provider.CreateInfrastructure("UAT");
             infra.VirtualMachine(new Windows(ResourceTypes.Enum.WindowsVersion.Windows10), 20, 4, 4);

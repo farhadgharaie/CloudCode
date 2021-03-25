@@ -1,7 +1,6 @@
 ﻿using CloudInfra.ResourceTypes;
 using CloudInfra.ResourceTypes.Enum;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace CloudInfra.UnitTest
 {

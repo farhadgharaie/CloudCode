@@ -4,8 +4,11 @@ using CloudInfra.ResourceTypes;
 using CloudInfra.ResourceTypes.Enum;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace CloudInfra.UnitTest
+namespace CloudInfra.IntegrationTest.Provider
 {
     [TestClass]
     public class InfrastructureUnitTest
@@ -27,7 +30,7 @@ namespace CloudInfra.UnitTest
             var expected = @"UAT_Server.json";
 
             //Act
-            var actual = new Infrastructure("UAT", providerPath,fileSystemMock.Object)
+            var actual = new Infrastructure("UAT", providerPath, fileSystemMock.Object)
                         .VirtualMachine(new Windows(windowsVersion), hdd, ram, cpu);
 
             //Assert
@@ -74,8 +77,8 @@ namespace CloudInfra.UnitTest
 
             //Act
             var actual = new Infrastructure("UAT", providerPath, fileSystemMock.Object)
-                        .Database().SQL(instance,charset,collation);
-              
+                        .Database().SQL(instance, charset, collation);
+
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -99,7 +102,7 @@ namespace CloudInfra.UnitTest
             //Act
             var actual = new Infrastructure("UAT", providerPath, fileSystemMock.Object)
                         .Database().MySQL(instance, charset, collation);
-            
+
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -122,9 +125,9 @@ namespace CloudInfra.UnitTest
             string providerPath = @"D:\IGS";
 
             //Act
-             new Infrastructure("UAT", providerPath, fileSystemMock.Object)
-                        .Delete();
-            
+            new Infrastructure("UAT", providerPath, fileSystemMock.Object)
+                       .Delete();
+
 
             //Assert
             //Assert.AreEqual(expected, actual);

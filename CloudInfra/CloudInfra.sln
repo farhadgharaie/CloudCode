@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudInfra", "CloudInfra\CloudInfra.csproj", "{2EDB7DCA-6135-4C01-BF59-D63557FAC988}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudInfra", "CloudInfra\CloudInfra.csproj", "{2EDB7DCA-6135-4C01-BF59-D63557FAC988}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{983127AF-9C0E-43D4-814B-A955B56422F7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{192B213B-1278-47CE-A6AB-86D0DF436F60}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudInfra.UnitTest", "UnitTest\CloudInfra.UnitTest\CloudInfra.UnitTest.csproj", "{ABA10279-1550-45FF-9D94-7F9E9904A665}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudInfra.IntegrationTest", "IntegrationTest\CloudInfra.IntegrationTest\CloudInfra.IntegrationTest.csproj", "{45BCF8AF-87AB-47FC-A251-9566367E68EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{ABA10279-1550-45FF-9D94-7F9E9904A665}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABA10279-1550-45FF-9D94-7F9E9904A665}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABA10279-1550-45FF-9D94-7F9E9904A665}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45BCF8AF-87AB-47FC-A251-9566367E68EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45BCF8AF-87AB-47FC-A251-9566367E68EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45BCF8AF-87AB-47FC-A251-9566367E68EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45BCF8AF-87AB-47FC-A251-9566367E68EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2EDB7DCA-6135-4C01-BF59-D63557FAC988} = {983127AF-9C0E-43D4-814B-A955B56422F7}
 		{ABA10279-1550-45FF-9D94-7F9E9904A665} = {192B213B-1278-47CE-A6AB-86D0DF436F60}
+		{45BCF8AF-87AB-47FC-A251-9566367E68EF} = {192B213B-1278-47CE-A6AB-86D0DF436F60}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3020200E-3DB8-4CEA-B5EF-E595D0B411F9}
