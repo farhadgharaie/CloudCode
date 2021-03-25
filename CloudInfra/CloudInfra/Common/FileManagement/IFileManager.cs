@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CloudInfra.Common.FileManagement
 {
-    public interface IFileSystem
+    public interface IFileManager
     {
         void WriteJsonFile<T>(T obj, string subPath, string fileName)
         where T : class, new();

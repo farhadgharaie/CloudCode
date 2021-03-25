@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CloudInfra.Common.FileManagement
 {
-    public class FileManager : IFileSystem
+    public class FileManager : IFileManager
     {
         public void CreateDirectory(string subPath)
         {
@@ -50,7 +50,7 @@ namespace CloudInfra.Common.FileManagement
 
         private string FileFullPath(string subPath, string fileName)
         {
-            var filesCount= GetAllDirectory(subPath).Count();
+            var filesCount= GetAllFile(subPath).Count();
             int fileNumber = ++filesCount;
             string newFileName = string.Concat(fileNumber.ToString(), "_", fileName);
             string fileFullPath = string.Concat(subPath, @"\", newFileName);

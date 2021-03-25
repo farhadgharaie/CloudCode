@@ -48,7 +48,6 @@ namespace CloudInfra.UnitTest
                 HardDisk = 40,
                 RAM = 4,
                 OperatingSystem = "Debian"
-                
             };
 
             //Act

@@ -20,12 +20,12 @@ namespace CloudInfra.Providers
         {
             _providerName = ProviderName;
         }
-        public Infrastructure CreateInfrastructure(string InfrastructureName)
+        public virtual Infrastructure CreateInfrastructure(string InfrastructureName)
         {
            return  new Infrastructure(InfrastructureName,_providerPath+_providerName,
                                       new FileManager());
         }
-        public void DeleteInfrastructure(string InfrastructureName)
+        public virtual void DeleteInfrastructure(string InfrastructureName)
         {
             var infra = new Infrastructure(InfrastructureName, _providerPath + _providerName,
                                        new FileManager());

@@ -8,14 +8,14 @@ namespace CloudInfra.Providers
 {
     public class Infrastructure : IResourceType
     {
-        private readonly IFileSystem _fileSystem;
+        private readonly IFileManager _fileSystem;
         private string _infrastractureName;
         private string _providerPath = "";
         private string _fileExtention = ".json";
         private JsonSerializer _jsonData = new JsonSerializer();
         public Infrastructure(string InfrastractureName,
                               string ProviderPath,
-                              IFileSystem fileSystem)
+                              IFileManager fileSystem)
         {
             _infrastractureName = InfrastractureName;
             _providerPath = ProviderPath;

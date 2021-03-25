@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\JsonSerializerUnitTest.cs" />
     <Compile Include="DatabaseUnitTest.cs" />
     <Compile Include="ProviderUnitTest.cs" />
     <Compile Include="VirtualMachineUnitTest.cs" />

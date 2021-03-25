@@ -20,7 +20,7 @@ namespace CloudInfra.IntegrationTest.Provider
             int ram = 4;
             int hdd = 40;
             WindowsVersion windowsVersion = WindowsVersion.WindowsServer2012;
-            var fileSystemMock = new Mock<IFileSystem>();
+            var fileSystemMock = new Mock<IFileManager>();
             fileSystemMock.Setup(w => w.WriteJsonFile(It.IsAny<object>(),
                                                  It.IsAny<string>(),
                                                  It.IsAny<string>()))
@@ -43,7 +43,7 @@ namespace CloudInfra.IntegrationTest.Provider
             int ram = 4;
             int hdd = 40;
             LinuxDistribution LinuxDist = LinuxDistribution.Debian;
-            var fileSystemMock = new Mock<IFileSystem>();
+            var fileSystemMock = new Mock<IFileManager>();
             fileSystemMock.Setup(w => w.WriteJsonFile(It.IsAny<object>(),
                                                  It.IsAny<string>(),
                                                  It.IsAny<string>()))
@@ -66,7 +66,7 @@ namespace CloudInfra.IntegrationTest.Provider
             SqlCharset charset = SqlCharset.utf32;
             string collation = "collation1";
             var db = new SQLResource(instance, charset, collation);
-            var fileSystemMock = new Mock<IFileSystem>();
+            var fileSystemMock = new Mock<IFileManager>();
             fileSystemMock.Setup(w => w.WriteJsonFile(It.IsAny<object>(),
                                                  It.IsAny<string>(),
                                                  It.IsAny<string>()))
@@ -90,7 +90,7 @@ namespace CloudInfra.IntegrationTest.Provider
             MySqlCharset charset = MySqlCharset.utf8;
             string collation = "collation1";
             var db = new MySQLResource(instance, charset, collation);
-            var fileSystemMock = new Mock<IFileSystem>();
+            var fileSystemMock = new Mock<IFileManager>();
             fileSystemMock.Setup(w => w.WriteJsonFile(It.IsAny<object>(),
                                                  It.IsAny<string>(),
                                                  It.IsAny<string>()))
@@ -115,7 +115,7 @@ namespace CloudInfra.IntegrationTest.Provider
             string[] filesPath = new string[] { @"IGS\UAT\VM\UAT_Server1.json",
                                                 @"IGS\UAT\VM\UAT_Server2.json" };
 
-            var fileSystemMock = new Mock<IFileSystem>();
+            var fileSystemMock = new Mock<IFileManager>();
             fileSystemMock.Setup(w => w.GetAllDirectory(It.IsAny<string>()))
                           .Returns(directoriesPath);
             fileSystemMock.Setup(w => w.GetAllFile(It.IsAny<string>()))

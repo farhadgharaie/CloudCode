@@ -14,13 +14,17 @@ namespace CloudInfra.UnitTest
             string instance = "example";
             SqlCharset charset = SqlCharset.utf32;
             string collation = "collation1";
-            var db = new SQLResource(instance,charset,collation);
+            string userName = "user1";
+            string password = "1234";
+            var db = new SQLResource(instance,charset,collation,userName,password);
 
             var expected = new DatabaseResource
             {
                 Instance = "example",
                 Collation = "collation1",
-                Charset = "utf32"
+                Charset = "utf32",
+                UserName="user1",
+                Password="1234"
             };
 
             //Act
@@ -36,13 +40,17 @@ namespace CloudInfra.UnitTest
             string instance = "example";
             MySqlCharset charset = MySqlCharset.utf8;
             string collation = "collation1";
-            var db = new MySQLResource(instance, charset, collation);
+            string userName = "user1";
+            string password = "1234";
+            var db = new MySQLResource(instance, charset, collation, userName, password);
 
             var expected = new DatabaseResource
             {
                 Instance = "example",
                 Collation = "collation1",
-                Charset = "utf8"
+                Charset = "utf8",
+                UserName = "user1",
+                Password = "1234"
             };
 
             //Act

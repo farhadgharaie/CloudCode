@@ -5,36 +5,44 @@ namespace CloudInfra.ResourceTypes.Database
 {
     public class DatabaseFacotry
     {
-        private readonly IFileSystem _fileSystem;
+        private readonly IFileManager _fileSystem;
         private string _infrastractureName;
         private string _providerPath = "";
         private string _fileExtention = ".json";
         public DatabaseFacotry(string InfrastractureName,
                               string ProviderPath,
-                              IFileSystem fileSystem)
+                              IFileManager fileSystem)
         {
             _infrastractureName = InfrastractureName;
             _providerPath = ProviderPath;
             _fileSystem = fileSystem;
         }
-        public string SQL(string Instance,
-                           SqlCharset Charset,
-                           string Collation)
+        public string SQL(string instance,
+                           SqlCharset charset,
+                           string collation,
+                           string userName,
+                           string password)
         {
-            var sql = new SQLResource(Instance,
-                                     Charset,
-                                     Collation);
+            var sql = new SQLResource(instance,
+                                     charset,
+                                     collation,
+                                     userName,
+                                     password);
             var sqlAttributes= sql.Build();
             var filename=WriteFile(sqlAttributes,"SQL");
             return filename;
         }
-        public string MySQL(string Instance,
-                           MySqlCharset Charset,
-                           string Collation)
+        public string MySQL(string instance,
+                           MySqlCharset charset,
+                           string collation,
+                           string userName,
+                           string password)
         {
-            var mySql = new MySQLResource(Instance,
-                                     Charset,
-                                     Collation);
+            var mySql = new MySQLResource(instance,
+                                         charset,
+                                         collation,
+                                         userName,
+                                         password);
             var mySqlAttributes= mySql.Build();
             var filename = WriteFile(mySqlAttributes,"MySQL");
             return filename;

@@ -8,10 +8,6 @@ namespace CloudInfra.ResourceTypes.VirtualMachine
         private int _rAM;
         private int _cPU;
         private OperatingSystem _operatingSystem;
-        public VirtualMachine()
-        {
-
-        }
         public VirtualMachine(OperatingSystem operatingSystem,
                               int HardDisk, int RAM, int CPU)
         {
