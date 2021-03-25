@@ -22,8 +22,7 @@ namespace CloudInfra.UnitTest
                 CPU=8,
                 HardDisk=40,
                 RAM=4,
-                OperatingSystem=new WindowsAttribute
-                { Version= "WindowsServer2012" }
+                OperatingSystem= "WindowsServer2012" 
             };
 
             //Act
@@ -47,10 +46,8 @@ namespace CloudInfra.UnitTest
                 CPU = 8,
                 HardDisk = 40,
                 RAM = 4,
-                OperatingSystem = new LinuxAttribute
-                {  
-                    Distribution="Debian"
-                }
+                OperatingSystem = "Debian"
+                
             };
 
             //Act

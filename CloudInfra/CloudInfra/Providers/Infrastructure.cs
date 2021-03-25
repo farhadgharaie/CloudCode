@@ -1,6 +1,9 @@
 ﻿using CloudInfra.Common.FileManagement;
+using CloudInfra.Common.Json;
 using CloudInfra.ResourceTypes;
+using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization.Json;
 using OperatingSystem = CloudInfra.ResourceTypes.OperatingSystem;
 
 namespace CloudInfra.Providers
@@ -11,6 +14,7 @@ namespace CloudInfra.Providers
         private string _infrastractureName;
         private string _providerPath = "";
         private string _fileExtention = ".json";
+        private JsonSerializer _jsonData = new JsonSerializer();
         public Infrastructure(string InfrastractureName,
                               string ProviderPath,
                               IFileSystem fileSystem)
@@ -20,11 +24,11 @@ namespace CloudInfra.Providers
             _fileSystem = fileSystem;
         }
 
-        public DatabaseFacotry Database()
+        public virtual DatabaseFacotry Database()
         {
             return new DatabaseFacotry(_infrastractureName, _providerPath,_fileSystem);
         }
-        public string VirtualMachine(OperatingSystem os, int HDD, int RAM, int CPU)
+        public virtual string VirtualMachine(OperatingSystem os, int HDD, int RAM, int CPU)
         {
             string resourceTypeName = @"\VirtualMachine";
             string filePath =
@@ -38,16 +42,27 @@ namespace CloudInfra.Providers
                               _fileExtention);
             var vm = new VirtualMachine(os, HDD, RAM, CPU);
             var virtualMachineAttribute = vm.Build();
-
-            string fileContent = virtualMachineAttribute.ToString();
-            WriteFile( filePath, fileName, fileContent);
+            _fileSystem.WriteTextFile(virtualMachineAttribute,
+                                    filePath, fileName);
 
             return fileName;
         }
-        private void WriteFile( string filePAth, string fileName, string fileContent)
+        public void Delete()
         {
-            _fileSystem.WriteTextFile(filePAth, fileName, fileContent);
+            string infrastructurePath = string.Concat(_providerPath,@"\", _infrastractureName);
+            
+            var directories = _fileSystem.GetAllDirectory(infrastructurePath);
+            
+            foreach (var dir in directories)
+            {
+                var files = _fileSystem.GetAllFile(dir);
+                foreach (var file in files)
+                {
+                    _fileSystem.DeleteFile(file);
+                }
+                _fileSystem.DeleteDirectory(dir);
+            }
+            _fileSystem.DeleteDirectory(infrastructurePath);
         }
     }
-    
 }

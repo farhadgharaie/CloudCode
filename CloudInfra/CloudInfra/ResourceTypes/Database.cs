@@ -28,7 +28,7 @@ namespace CloudInfra.ResourceTypes
                                      Charset,
                                      Collation);
             var sqlAttributes= sql.Build();
-            var filename=WriteFile("SQL", sqlAttributes.ToString());
+            var filename=WriteFile(sqlAttributes,"SQL");
             return filename;
         }
         public string MySQL(string Instance,
@@ -39,11 +39,12 @@ namespace CloudInfra.ResourceTypes
                                      Charset,
                                      Collation);
             var mySqlAttributes= mySql.Build();
-            return "";
+            var filename = WriteFile(mySqlAttributes,"MySQL");
+            return filename;
         }
         
-        private string WriteFile(string databaseType,
-                               string fileContent)
+        private string WriteFile<T>(T objecttoSave,string databaseType)
+            where T :class, new()
         {
             string resourceTypeName = @"\DB";
             string filePath =
@@ -57,7 +58,7 @@ namespace CloudInfra.ResourceTypes
                               databaseType,
                               _fileExtention);
 
-            _fileSystem.WriteTextFile(filePath, fileName, fileContent);
+            _fileSystem.WriteTextFile(objecttoSave,filePath, fileName);
             return fileName;
         }
     }

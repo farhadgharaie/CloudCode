@@ -1,5 +1,6 @@
 ﻿using CloudInfra.ResourceTypes.Enum;
 using System;
+using System.Runtime.Serialization;
 
 namespace CloudInfra.ResourceTypes
 {
@@ -9,6 +10,10 @@ namespace CloudInfra.ResourceTypes
         private int _rAM;
         private int _cPU;
         private OperatingSystem _operatingSystem;
+        public VirtualMachine()
+        {
+
+        }
         public VirtualMachine(OperatingSystem operatingSystem,
                               int HardDisk, int RAM, int CPU)
         {
@@ -28,24 +33,16 @@ namespace CloudInfra.ResourceTypes
             };
             return res;
         }
+        public void Delete()
+        {
+
+        }
     }
     public abstract class OperatingSystem
     {
-        public abstract object Build();
+        public abstract string Build();
     }
-    public class WindowsAttribute
-    {
-        public string Version { get; set; }
-        public override bool Equals(Object obj)
-        {
-            if (obj is WindowsAttribute)
-            {
-                var that = obj as WindowsAttribute;
-                return this.Version == that.Version;
-            }
-            return false;
-        }
-    }
+    
     public class Windows : OperatingSystem
     {
         private WindowsVersion _version;
@@ -53,27 +50,12 @@ namespace CloudInfra.ResourceTypes
         {
             _version = version;
         }
-        public override object Build()
+        public override string Build()
         {
-            return new WindowsAttribute
-            {
-                Version = _version.ToString()
-            };
+            return _version.ToString();
         }
     }
-    public class LinuxAttribute
-    {
-        public string Distribution { get; set; }
-        public override bool Equals(Object obj)
-        {
-            if (obj is LinuxAttribute)
-            {
-                var that = obj as LinuxAttribute;
-                return  this.Distribution == that.Distribution;
-            }
-            return false;
-        }
-    }
+   
     public class Linux : OperatingSystem
     {
         private LinuxDistribution _distribution;
@@ -81,21 +63,18 @@ namespace CloudInfra.ResourceTypes
         {
             _distribution = distribution;
         }
-
-        public override object Build()
+        public override string Build()
         {
-            return new LinuxAttribute
-            {
-                Distribution = _distribution.ToString(),
-            };
+            return _distribution.ToString();
         }
     }
+
     public class VirtualMachineResource
     {
         public int CPU { get; set; }
         public int RAM { get; set; }
         public int HardDisk { get; set; }
-        public object OperatingSystem { get; set; }
+        public string OperatingSystem { get; set; }
         public override bool Equals(Object obj)
         {
             if (obj is VirtualMachineResource)
@@ -104,7 +83,7 @@ namespace CloudInfra.ResourceTypes
                 return this.CPU == that.CPU &&
                        this.RAM == that.RAM &&
                        this.HardDisk == that.HardDisk &&
-                       this.OperatingSystem.Equals(that.OperatingSystem);
+                       this.OperatingSystem==that.OperatingSystem;
             }
             return false;
         }
