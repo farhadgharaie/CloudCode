@@ -1,17 +1,13 @@
 ﻿using CloudInfra.Common.FileManagement;
-using CloudInfra.ResourceTypes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CloudInfra.Providers
 {
     public interface IProvider
     {
         void setRootPath(string rootPath);
-        void setName(string providerName);
-
-
+        string GetName();
+        Infrastructure CreateInfrastructure(string InfrastructureName);
+        void DeleteInfrastructure(string InfrastructureName);
     }
    public  class Provider : IProvider
     {
@@ -36,12 +32,12 @@ namespace CloudInfra.Providers
             infra.Delete();
         }
 
-        public void setName(string providerName)
+        public virtual string GetName()
         {
-            _providerName = providerName;
+            return _providerName ;
         }
 
-        public void setRootPath(string rootPath)
+        public virtual void setRootPath(string rootPath)
         {
             _providerPath = rootPath;
         }

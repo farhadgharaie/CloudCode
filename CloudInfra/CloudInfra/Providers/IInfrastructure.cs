@@ -1,12 +1,13 @@
 ﻿using CloudInfra.ResourceTypes.Database;
 using CloudInfra.ResourceTypes.VirtualMachine;
 
-namespace CloudInfra.ResourceTypes
+namespace CloudInfra.Providers
 {
-   public  interface IResourceType
+   public  interface IInfrastructure
     {
         string VirtualMachine(OperatingSystem os,int HDD,int RAM, int CPU);
         DatabaseFacotry Database();
+        void Delete();
     }
     
 }

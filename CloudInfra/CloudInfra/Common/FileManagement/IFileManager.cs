@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CloudInfra.Common.FileManagement
+﻿namespace CloudInfra.Common.FileManagement
 {
     public interface IFileManager
     {

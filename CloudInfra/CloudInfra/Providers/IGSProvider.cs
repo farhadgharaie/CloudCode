@@ -1,24 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CloudInfra.Providers
+﻿namespace CloudInfra.Providers
 {
-   public class IGSProvider :IProvider
+    public class IGSProvider : Provider
     {
-        public IGSProvider() 
+        private static  string _providerName = "IGS";
+        public IGSProvider() : base(_providerName)
         {
-
-        }
-
-        public void setName(string providerName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void setRootPath(string rootPath)
-        {
-            throw new NotImplementedException();
         }
     }
 }

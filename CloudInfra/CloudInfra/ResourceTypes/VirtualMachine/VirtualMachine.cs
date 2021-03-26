@@ -1,28 +1,26 @@
-﻿using System.Runtime.Serialization;
-
-namespace CloudInfra.ResourceTypes.VirtualMachine
+﻿namespace CloudInfra.ResourceTypes.VirtualMachine
 {
     public class VirtualMachine
     {
         private int _hardDiskSpace;
-        private int _rAM;
-        private int _cPU;
+        private int _ram;
+        private int _cpu;
         private OperatingSystem _operatingSystem;
         public VirtualMachine(OperatingSystem operatingSystem,
                               int HardDisk, int RAM, int CPU)
         {
             _hardDiskSpace = HardDisk;
-            _rAM = RAM;
-            _cPU = CPU;
+            _ram = RAM;
+            _cpu = CPU;
             _operatingSystem = operatingSystem;
         }
         public VirtualMachineResource Build()
         {
             var res = new VirtualMachineResource()
             {
-                CPU = _cPU,
+                CPU = _cpu,
                 HardDisk = _hardDiskSpace,
-                RAM = _rAM,
+                RAM = _ram,
                 OperatingSystem=_operatingSystem.Build()
             };
             return res;

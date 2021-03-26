@@ -15,12 +15,4 @@ namespace CloudInfra.ResourceTypes.Enum
         WindowsServer2008R2,
         WindowsServer2008
     }
-    public enum LinuxDistribution
-    {
-        Ubuntu,
-        Fedora,
-        RedHat,
-        Suse,
-        Debian
-    }
 }
