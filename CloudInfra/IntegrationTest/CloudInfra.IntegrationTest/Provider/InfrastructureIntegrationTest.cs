@@ -10,7 +10,7 @@ using Moq;
 namespace CloudInfra.IntegrationTest.Provider
 {
     [TestClass]
-    public class InfrastructureUnitTest
+    public class InfrastructureIntegrationTest
     {
         [TestMethod]
         public void VirtualMachine_Should_Set_Windows_VirtualMachineResource_Correctly()
@@ -122,10 +122,10 @@ namespace CloudInfra.IntegrationTest.Provider
             var fileSystemMock = new Mock<IFileManager>();
             fileSystemMock.Setup(w => w.GetAllDirectory(It.IsAny<string>()))
                           .Returns(directoriesPath);
-            fileSystemMock.Setup(w => w.GetAllFile(It.IsAny<string>()))
+            fileSystemMock.Setup(w => w.GetAllFile(@"IGS\UAT\VM"))
                           .Returns(filesPath);
 
-            string providerPath = @"D:\IGS";
+            string providerPath = @"IGS";
 
             //Act
             new Infrastructure("UAT", providerPath, fileSystemMock.Object)
@@ -133,7 +133,11 @@ namespace CloudInfra.IntegrationTest.Provider
 
 
             //Assert
-            //Assert.AreEqual(expected, actual);
+            fileSystemMock.Verify(mock => mock.DeleteDirectory(@"IGS\UAT"), Times.Once());
+            fileSystemMock.Verify(mock => mock.DeleteDirectory(@"IGS\UAT\VM"), Times.Once());
+            fileSystemMock.Verify(mock => mock.DeleteDirectory(@"IGS\UAT\DB"), Times.Once());
+            fileSystemMock.Verify(mock => mock.DeleteFile(It.IsAny<string>()), Times.Exactly(2));
+
         }
     }
 }

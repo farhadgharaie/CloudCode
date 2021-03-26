@@ -64,8 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\JsonSerializerUnitTest.cs" />
-    <Compile Include="DatabaseUnitTest.cs" />
-    <Compile Include="VirtualMachineUnitTest.cs" />
+    <Compile Include="ResourceType\DatabaseUnitTest.cs" />
+    <Compile Include="ResourceType\VirtualMachineUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

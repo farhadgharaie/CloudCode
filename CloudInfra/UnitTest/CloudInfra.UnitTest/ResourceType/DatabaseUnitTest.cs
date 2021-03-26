@@ -2,7 +2,7 @@
 using CloudInfra.ResourceTypes.Enum;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CloudInfra.UnitTest
+namespace CloudInfra.UnitTest.ResourceType
 {
     [TestClass]
     public class DatabaseUnitTest

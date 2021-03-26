@@ -3,13 +3,13 @@ using CloudInfra.ResourceTypes.Enum;
 
 namespace CloudInfra.ResourceTypes.Database
 {
-    public class DatabaseFacotry
+    public class DatabaseFactory
     {
         private readonly IFileManager _fileSystem;
         private string _infrastractureName;
         private string _providerPath = "";
         private string _fileExtention = ".json";
-        public DatabaseFacotry(string InfrastractureName,
+        public DatabaseFactory(string InfrastractureName,
                               string ProviderPath,
                               IFileManager fileSystem)
         {

@@ -21,9 +21,9 @@ namespace CloudInfra.Providers
             _fileManager = fileManager;
         }
 
-        public virtual DatabaseFacotry Database()
+        public virtual DatabaseFactory Database()
         {
-            return new DatabaseFacotry(_infrastractureName, _providerPath,_fileManager);
+            return new DatabaseFactory(_infrastractureName, _providerPath,_fileManager);
         }
         public virtual string VirtualMachine(OperatingSystem os, int HDD, int RAM, int CPU)
         {

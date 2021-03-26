@@ -170,7 +170,7 @@ namespace CloudInfra.IntegrationTest.Provider
             provider.DeleteInfrastructure("UAT");
 
             //Assert
-            fileSystemMock.Verify(mock => mock.DeleteDirectory(@"c:\\test\\UAT"), Times.Once());
+            fileSystemMock.Verify(mock => mock.DeleteDirectory(@"c:\test\UAT"), Times.Once());
         }
     }
 }
